@@ -1,0 +1,14 @@
+body {
+  font-family: 'Lexend Deca', sans-serif;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.Home {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}

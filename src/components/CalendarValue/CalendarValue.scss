@@ -1,0 +1,35 @@
+.CalendarValue {
+  display: inline;
+}
+
+.DisplayValue {
+  display: inherit;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+input[type="date"] {
+  position: absolute;
+  border: none;
+  margin-right: -6em;
+  background: transparent;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 100%;
+  padding-top: 4em;
+  color: transparent;
+  background: transparent;
+  z-index: 1;
+}
+
+/* adjust increase/decrease button */
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* adjust clear button */
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
