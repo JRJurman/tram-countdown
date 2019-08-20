@@ -1,8 +1,8 @@
-import ColorControl from './ColorControl'
+import AppHeader from './AppHeader'
 
-describe('ColorControl', () => {
+describe('AppHeader', () => {
   describe('with default props', () => {
-    const wrapper = ColorControl()
+    const wrapper = AppHeader()
 
     it('should match snapshot', () => {
       expect(wrapper.outerHTML).toMatchSnapshot()

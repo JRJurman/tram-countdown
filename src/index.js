@@ -1,19 +1,19 @@
 import 'babel-polyfill';
 import { registerHtml, start } from 'tram-one'
 import Countdown from './components/Countdown'
-import ControlMenu from './components/ControlMenu'
+import AppHeader from './components/AppHeader'
 import './styles.css'
 
 const html = registerHtml({
-  Countdown, ControlMenu
+  Countdown, AppHeader
 })
 
 const home = () => {
   return html`
     <div class="Home">
-      <ControlMenu />
+      <AppHeader />
       <Countdown />
-      <footer />
+      <footer style="height: 2em" />
     </div>
   `
 }
