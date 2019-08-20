@@ -1,7 +1,8 @@
 import { registerHtml } from 'tram-one'
 import CalendarValue from '../CalendarValue'
 import EventInput from '../EventInput'
-import useGoalDate from '../../hooks/useGoalDate'
+import useQueryControls from '../../hooks/useQueryControls'
+import { getDateDiff } from '../../helpers'
 import './Countdown.scss'
 
 const html = registerHtml({
@@ -9,17 +10,25 @@ const html = registerHtml({
 })
 
 export default (props, children) => {
-  const {dateDiff, targetDate, onChangeDate} = useGoalDate()
+  const {date, event, setDate, setEvent} = useQueryControls()
+  const onChangeDate = (domEvent) => {
+    setDate(domEvent.target.value)
+  }
 
+  const onChangeEvent = (domEvent) => {
+    setEvent(domEvent.target.value)
+  }
+
+  const dateDiff = getDateDiff(date)
   const direction = dateDiff < 0 ? 'Since' : 'Until'
   const unit = Math.abs(dateDiff) == 1 ? 'Day' : 'Days'
   const innerLabel = ` ${unit} ${direction} `
 
   return html`
     <div class="Countdown">
-      <CalendarValue displayValue=${Math.abs(dateDiff)} date=${targetDate.format("YYYY-MM-DD")} onChangeDate=${onChangeDate} />
+      <CalendarValue value=${date} onchange=${onChangeDate} />
       ${innerLabel}
-      <EventInput />
+      <EventInput value=${event} onchange=${onChangeEvent} />
     </div>
   `
 }
