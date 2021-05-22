@@ -1,14 +1,18 @@
 body {
   font-family: 'Lexend Deca', sans-serif;
-  display: flex;
-  align-items: center;
-  height: 100vh;
+  font-size: 3vw;
   margin: 0;
 }
 
+input {
+  font-size: 3vw;
+}
+
 .Home {
+  height: 80vh;
+  width: 90%;
+  margin: auto;
   display: flex;
-  height: 100vh;
   flex-direction: column;
   justify-content: space-between;
 }
